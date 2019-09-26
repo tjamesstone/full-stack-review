@@ -22,6 +22,10 @@ CREATE TABLE games (
     img TEXT
 );
 
+INSERT INTO husers (name, email, is_admin)
+VALUES ('Jonathan', 'jon@than.com', true),
+('Andrew', '@ndy.com', false);
+
 INSERT INTO games(title, price, img)
 VALUES ('The Witcher 3: Wild Hunt', 5999, 'https://images.igdb.com/igdb/image/upload/t_cover_big/tri1c6vbydeosoqajwt1.jpg'),
 ('God of War', 5999, 'https://images.igdb.com/igdb/image/upload/t_cover_big/cintjlnx6o8qyqtcnajl.jpg'),
