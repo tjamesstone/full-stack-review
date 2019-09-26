@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 
-export default class Cartgames extends Component{
+export default class Cartgame extends Component{
     constructor(){
         super()
         this.state = {
@@ -10,8 +10,8 @@ export default class Cartgames extends Component{
 
     render(){
         return(
-            <div className="cartgames">
-                Cart Games
+            <div className="cartgame">
+                Cart Game
             </div>
         )
     }

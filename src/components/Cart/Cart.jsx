@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import Cartgames from './Cartgames'
+import Cartgame from './Cartgame'
 
 export default class Cart extends Component{
     constructor(){
@@ -13,7 +13,7 @@ export default class Cart extends Component{
         return(
             <div className="cart">
                 Cart
-                <Cartgames />
+                <Cartgame />
             </div>
         )
     }
