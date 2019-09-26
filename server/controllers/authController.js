@@ -27,6 +27,30 @@ module.exports = {
     },
     login: async (req, res) => {
         const db = req.app.get('db')
+        const {email, password} = req.body
+
+        //Check if the user exists, If the user exists, find the hash
+        const user = await db.find_user(email)
+
+
+            //if user doesn't exist send appropro response
+        if(!user[0]) return res.status(200).send({message: 'Email not found beeotch '})
+
+
+        //hash password and compare
+        const result = bcrypt.compareSync(password, user[0].hash)
+
+        
+        
+        //if hashes don't match, send appropro response
+        if (!result) return res.status(200).send({message: 'Incorrect password bee otch'})
+
+        //If they do match, send user to sessions
+        const {name, is_admin:isAdmin, user_id:userId} = user[0]
+        req.session.user = {email, name, userId, isAdmin}
+
+        //send session.user back to front end
+        res.status(200).send({message: 'Logged In', user: req.session.user, loggedIn: true})
 
     }
 }
